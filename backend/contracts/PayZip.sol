@@ -51,7 +51,7 @@ function addName(string memory _name) public {
 function createRequest(address user, uint256 _amount, string memory _message) public {
     request_money memory newRequest;
     newRequest.requestor = msg.sender;
-    newRequest.amount = _amount;
+    newRequest.amount = _amount*1e-9;
     newRequest.message = _message;
     if(name[msg.sender].hname){
         newRequest.name_r = name[msg.sender].name;
@@ -67,7 +67,7 @@ function payRequest(uint256 _request) public payable {
     request_money[] storage myRequests = requests[msg.sender];
     request_money storage payableRequest = myRequests[_request];
     
-    uint256 toPay = payableRequest.amount * 1000000000000000000;
+    uint256 toPay = payableRequest.amount;
     require(msg.value == (toPay),"Pay Correct Amount");
 
     payable(payableRequest.requestor).transfer(msg.value);

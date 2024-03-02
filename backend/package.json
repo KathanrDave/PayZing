@@ -1,4 +1,20 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "waffle",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "moralis": "^2.16.1"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.5",
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
@@ -8,8 +24,6 @@
     "ethereum-waffle": "^4.0.10",
     "ethers": "^6.11.1",
     "hardhat": "^2.20.1"
-  },
-  "scripts": {
-    "build": "waffle"
   }
+  
 }

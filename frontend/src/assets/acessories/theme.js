@@ -5,21 +5,15 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
  palette: {
     primary: {
-      main: "#2a9461",
-    },
-    secondary: {
-      main: "#494c7d",
-    },
-    myAwesomeColor: {
-      main: "#ff0000",
-    },
-    tertiary: {
-      main: "#1a1a1a",
+      main: "#FFFDFA",
     },
     background: {
-      default: "#f5f5f5",
-      paper: "#ffffff",
+      default: "#030637",
+      paper: "#030637",
     },
+    color: {
+      default: "#910A67",
+    }
  },
  typography: {
     h1: {
@@ -42,9 +36,9 @@ const theme = createTheme({
           fontWeight: 500,
           textTransform: 'none',
           padding: '8px 16px',
-          backgroundColor: '#98ABEE',
+          backgroundColor: '#910A67',
           borderRadius: '4px',
-          color: '#F9E8C9', // Set the font color here
+          color: '#FFFDFA', // Set the font color here
           '&:hover': {
             backgroundColor: '#201658', // Hover background color
           },

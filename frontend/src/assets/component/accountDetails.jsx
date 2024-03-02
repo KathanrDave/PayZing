@@ -23,7 +23,7 @@ function AccountDetails({ address, name, balance }) {
     // Handle the "Switch Accounts" action
   };
   return (
-    <div className="mt-4 mb-12 ">
+    <div className="mt-4 mb-12  border-indigo-400 border-2 rounded-lg">
       <ThemeProvider theme={theme}>
         <Card
           sx={{

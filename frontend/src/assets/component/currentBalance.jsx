@@ -19,7 +19,7 @@ function CurrentBalance({ dollars }) {
   };
 
   return (
-    <div className="mt-12 ">
+    <div className="mt-12  border-indigo-400 border-2 rounded-lg">
       <ThemeProvider theme={theme}>
         <Card
           sx={{
@@ -42,7 +42,7 @@ function CurrentBalance({ dollars }) {
             }
           />
           <CardContent>
-            <div className="flex">
+            <div className="flex ">
               <div className="flex space-x-4">
                 <div>
                     

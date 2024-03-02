@@ -11,8 +11,9 @@ const HomePage = () => {
   const history = "";
 
   return (
-    <div className="flex bg-stone-200 w-full h-full">
-      <div className="flex-start  w-1/3 mt-3 ml-3 ">
+    <div className="flex h-screen bg-[url('/public/herobg.png')] bg-no-repeat h-full">
+        <div className="flex w-full">
+        <div className="flex-start  w-1/3 mt-3 ml-3">
         <div className="flex-col items-center">
           <AccountDetails address={address} name={name} balance={balance} />
         </div>
@@ -23,8 +24,11 @@ const HomePage = () => {
           <CurrentBalance dollars={dollars} />
         </div>
       </div>
-
-      {/* <TableDetails history={history}/> */}
+      <div className="w-2/3 mt-6 ml-3 mr-3 rounded">
+      <TableDetails/>
+        </div>
+      </div>
+  
     </div>
   );
 };

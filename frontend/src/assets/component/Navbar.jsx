@@ -1,7 +1,9 @@
 import { useState } from "react";
 import React from 'react'
+import { Connector, useConnect } from 'wagmi'
 
 function Navbar() {
+    const { connectors, connect } = useConnect();
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {

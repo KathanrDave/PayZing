@@ -19,69 +19,77 @@ function CurrentBalance({ dollars }) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Card
-        sx={{ width: "100%", background: theme.palette.background.default }}
-      >
-        <CardHeader
-          title={
-            <Typography
-              sx={{
-                fontSize: theme.typography.h1.fontSize,
-                fontWeight: theme.typography.h1.fontWeight,
-                color: theme.palette.primary.main,
-              }}
-            >
-              Current Balance
-            </Typography>
-          }
-        />
-        <CardContent>
-          <div className="flex">
-            <div className="flex justify-between">
-              <div className="mt-2 ml-4">
-                <Typography
-                  sx={{
-                    fontSize: "2.6rem",
-                    fontWeight: theme.typography.h1.fontWeight,
-                    lineHeight: "70px",
-                    color: theme.palette.primary.main,
-                  }}
-                >
-                  $ {dollars}
-                </Typography>
-              </div>
-             <div className="mt-8 ml-4">
-             <Typography
+    <div className="mt-8 border-indigo-400 border-2 rounded-lg">
+      <ThemeProvider theme={theme}>
+        <Card
+          sx={{
+            width: "100%",
+            background: theme.palette.background.default,
+            borderRadius: 3,
+          }}
+        >
+          <CardHeader
+            title={
+              <Typography
                 sx={{
-                  fontSize:'1.2rem',
-                  fontWeight: theme.typography.h2.fontWeight,
-                  color: theme.palette.secondary.main,
+                  fontSize: theme.typography.h1.fontSize,
+                  fontWeight: theme.typography.h1.fontWeight,
+                  color: theme.palette.primary.main,
                 }}
               >
-                Available
+                Current Balance
               </Typography>
-             </div>
-              
+            }
+          />
+          <CardContent>
+            <div className="flex ">
+              <div className="flex space-x-4">
+                <div>
+                    
+                </div>
+                <div className="ml-4 w-2/3">
+                  <Typography
+                    sx={{
+                      fontSize: "2.5rem",
+                      fontWeight: theme.typography.h1.fontWeight,
+                      lineHeight: "70px",
+                      color: theme.palette.primary.main,
+                    }}
+                  >
+                    $ {dollars}
+                  </Typography>
+                </div>
+                <div className="mt-7 ml-4">
+                  <Typography
+                    sx={{
+                      fontSize:"1rem",
+                      fontWeight: theme.typography.body2.fontWeight,
+                      color: theme.palette.secondary.main,
+                    }}
+                  >
+                    Available
+                  </Typography>
+                </div>
+              </div>
             </div>
-          </div>
-          <div>
-            <Button
-              onClick={handleSwapTokens}
-              sx={{ textTransform: "none", marginRight: 1 }}
-            >
-              Swap Tokens
-            </Button>
-            <Button
-              onClick={handleBridgeTokens}
-              sx={{ textTransform: "none", marginLeft: 1 }}
-            >
-              Bridge Tokens
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </ThemeProvider>
+            <div className="w-full items-center">
+              <Button
+                onClick={handleSwapTokens}
+                sx={{ textTransform: "none", marginRight: 1, marginLeft:2,borderRadius:2 }}
+              >
+                Swap Tokens
+              </Button>
+              <Button
+                onClick={handleBridgeTokens}
+                sx={{ textTransform: "none", marginLeft: 1,borderRadius:2 }}
+              >
+                Bridge Tokens
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </ThemeProvider>
+    </div>
   );
 }
 

@@ -1,81 +1,88 @@
 import React from "react";
 import {
- Card,
- CardContent,
- Typography,
- CardHeader,
- Button,
- ThemeProvider,
+  Card,
+  CardContent,
+  Typography,
+  CardHeader,
+  Button,
+  ThemeProvider,
 } from "@mui/material";
 import theme from "../acessories/theme";
 
 function CurrentBalance({ dollars }) {
- // api setup
- const handleSwapTokens = () => {
+  // api setup
+  const handleSwapTokens = () => {
     console.log("Swap Tokens clicked");
- };
- const handleBridgeTokens = () => {
+  };
+  const handleBridgeTokens = () => {
     console.log("Bridge Tokens clicked");
- };
+  };
 
- return (
+  return (
     <ThemeProvider theme={theme}>
-      <Card sx={{ width: "100%", background: theme.palette.background.default }}>
+      <Card
+        sx={{ width: "100%", background: theme.palette.background.default }}
+      >
         <CardHeader
           title={
-            <Typography variant="h1" sx={{ fontFamily: theme.typography.fontFamily }}>
+            <Typography
+              sx={{
+                fontSize: theme.typography.h1.fontSize,
+                fontWeight: theme.typography.h1.fontWeight,
+                color: theme.palette.primary.main,
+              }}
+            >
               Current Balance
             </Typography>
           }
         />
         <CardContent>
-          <div
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: theme.typography.h1.fontSize,
-                fontWeight: theme.typography.h1.fontWeight,
-                lineHeight: "70px",
-                color: theme.palette.primary.main,
-              }}
-            >
-              $ {dollars}
-            </Typography>
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: theme.typography.h2.fontSize,
-                fontWeight: theme.typography.h2.fontWeight,
-                color: theme.palette.secondary.main,
-              }}
-            >
-              Available
-            </Typography>
+          <div className="flex">
+            <div className="flex justify-between">
+              <div className="mt-2 ml-4">
+                <Typography
+                  sx={{
+                    fontSize: "2.6rem",
+                    fontWeight: theme.typography.h1.fontWeight,
+                    lineHeight: "70px",
+                    color: theme.palette.primary.main,
+                  }}
+                >
+                  $ {dollars}
+                </Typography>
+              </div>
+             <div className="mt-8 ml-4">
+             <Typography
+                sx={{
+                  fontSize:'1.2rem',
+                  fontWeight: theme.typography.h2.fontWeight,
+                  color: theme.palette.secondary.main,
+                }}
+              >
+                Available
+              </Typography>
+             </div>
+              
+            </div>
           </div>
-          <div
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "16px",
-            }}
-          >
-            <Button onClick={handleSwapTokens} variant="outlined">
+          <div>
+            <Button
+              onClick={handleSwapTokens}
+              sx={{ textTransform: "none", marginRight: 1 }}
+            >
               Swap Tokens
             </Button>
-            <Button onClick={handleBridgeTokens} variant="outlined">
+            <Button
+              onClick={handleBridgeTokens}
+              sx={{ textTransform: "none", marginLeft: 1 }}
+            >
               Bridge Tokens
             </Button>
           </div>
         </CardContent>
       </Card>
     </ThemeProvider>
- );
+  );
 }
 
 export default CurrentBalance;

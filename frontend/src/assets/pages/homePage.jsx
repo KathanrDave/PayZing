@@ -11,7 +11,7 @@ const HomePage = () => {
   const history = "";
 
   return (
-    <div className="flex h-screen bg-[url('/public/herobg.png')] bg-no-repeat h-full">
+    <div className="flex h-full  bg-[url('/public/herobg.png')] bg-no-repeat h-full">
         <div className="flex w-full">
         <div className="flex-start  w-1/3 mt-3 ml-3">
         <div className="flex-col items-center">

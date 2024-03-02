@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
 import theme from "../acessories/theme";
-import ThemeProvider from "@mui/material";
+import { ThemeProvider } from '@mui/material';
+
 const columns = [
     {
       title: "Payment Subjet",

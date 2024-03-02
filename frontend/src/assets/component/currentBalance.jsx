@@ -19,7 +19,7 @@ function CurrentBalance({ dollars }) {
   };
 
   return (
-    <div className="mt-12  border-indigo-400 border-2 rounded-lg">
+    <div className="mt-8 border-indigo-400 border-2 rounded-lg">
       <ThemeProvider theme={theme}>
         <Card
           sx={{

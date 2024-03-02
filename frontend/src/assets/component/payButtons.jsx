@@ -19,7 +19,13 @@ function PayButtons() {
           <Button
             onClick={handlePayUser}
             variant="outlined"
-            sx={{ textTransform: "none", marginRight: 2,marginLeft: 2, padding:3,borderRadius:3 }}
+            sx={{
+              textTransform: "none",
+              marginRight: 2,
+              marginLeft: 2,
+              padding: 3,
+              borderRadius: 3,
+            }}
           >
             Pay User
           </Button>
@@ -27,7 +33,12 @@ function PayButtons() {
           <Button
             onClick={handleRequestPay}
             variant="outlined"
-            sx={{ textTransform: "none", marginLeft: 5  , padding:3,borderRadius:3 }}
+            sx={{
+              textTransform: "none",
+              marginLeft: 5,
+              padding: 3,
+              borderRadius: 3,
+            }}
           >
             Request Pay
           </Button>

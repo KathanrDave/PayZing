@@ -22,14 +22,34 @@ const theme = createTheme({
     },
  },
  typography: {
-    fontFamily: 'Roboto, sans-serif',
     h1: {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       fontWeight: 700,
+    fontFamily: 'Roboto, sans-serif',
     },
     h2: {
       fontSize: '1.5rem',
       fontWeight: 600,
+    fontFamily: 'Roboto, sans-serif',
+    },
+ },
+ components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          // Custom styles for all buttons
+          fontSize: '0.9rem',
+          fontWeight: 500,
+          textTransform: 'none',
+          padding: '8px 16px',
+          backgroundColor: '#98ABEE',
+          borderRadius: '4px',
+          color: '#F9E8C9', // Set the font color here
+          '&:hover': {
+            backgroundColor: '#201658', // Hover background color
+          },
+        },
+      },
     },
  },
  spacing: 8,

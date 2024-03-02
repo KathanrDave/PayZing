@@ -36,20 +36,6 @@ function RecentActivity({ history }) {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            {history.map((row) => (
-              <TableRow key={row.key} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                <TableCell>{row.subject}</TableCell>
-                <TableCell>{row.type}</TableCell>
-                <TableCell>{row.address}</TableCell>
-                <TableCell>{row.message}</TableCell>
-                <TableCell sx={{ color: row.type === "Send" ? "red" : "green" }}>
-                 {row.type === "Send" ? "-" : "+"}
-                 {row.amount} Matic
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
         </Table>
       </TableContainer>
     </Card>

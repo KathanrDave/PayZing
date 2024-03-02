@@ -28,7 +28,7 @@ const theme = createTheme({
     },
     body1: {
       fontSize: '1rem',
-      fontWeight: 400,
+      fontWeight: 600,
       fontFamily: 'Roboto, sans-serif',
       lineHeight: 1.5,
     },

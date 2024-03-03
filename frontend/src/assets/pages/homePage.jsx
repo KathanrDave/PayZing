@@ -1,20 +1,102 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import AccountDetails from "../component/accountDetails";
 import CurrentBalance from "../component/currentBalance";
 import TableDetails from "../component/tableDetails";
 import PayButtons from "../component/payButtons";
-import Navbar from "../component/Navbar";
+import { ThemeProvider } from "@mui/material";
+import theme from "../acessories/theme";
+// import Navbar from "../component/Navbar";
+import { useConnect, useAccount, useDisconnect } from "wagmi";
+import axios from "axios";
+import { Button } from "@mui/material";
 
 const HomePage = () => {
+  const account = useAccount();
+  const isConnected = useAccount().isConnected;
+  const { connectors, connect } = useConnect();
+  const { disconnect } = useDisconnect();
+
   const address = "0x123.....";
-  const name = "Divykumar";
-  const balance = "100.32";
-  const dollars = "121.00";
-  const history = "";
+  // const name = "Divykumar";
+  // const balance = "100.32";
+  // const dollars = "121.00";
+  // const history = "";
+  const [name, setName] = useState("...");
+  const [balance, setBalance] = useState("...");
+  const [dollars, setDollars] = useState("...");
+  const [history, setHistory] = useState(null);
+  const [requests, setRequests] = useState({ 1: [0], 0: [] });
+
+  function disconnectAndSetNull() {
+    disconnect();
+    setName("...");
+    setBalance("...");
+    setDollars("...");
+    setHistory(null);
+    setRequests({ 1: [0], 0: [] });
+  }
+
+  async function getNameAndBalance() {
+    const res = await axios.get(`http://localhost:3001/getNameAndBalance`, {
+      params: { userAddress: address },
+    });
+
+    const response = res.data;
+    console.log(response.requests);
+    if (response.name[1]) {
+      setName(response.name[0]);
+    }
+    setBalance(String(response.balance));
+    setDollars(String(response.dollars));
+    setHistory(response.history);
+    setRequests(response.requests);
+  }
+
+  useEffect(() => {
+    if (!isConnected) return;
+    getNameAndBalance();
+  }, [isConnected]);
 
   return (
     <>
-      <Navbar/>
+      <nav className="relative bg-white shadow dark:bg-gray-800 w-full">
+        <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+          <div className="flex items-center justify-between">
+            <h1 className="text-3xl font-bold text-gray-900 font-roboto">
+              PAYZING
+            </h1>
+          </div>
+
+          <div
+            className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`}
+          >
+            <div className="flex flex-col md:flex-row md:mx-6">
+              {isConnected ? (
+                <ThemeProvider theme={theme}>
+                  <Button type="button" onClick={disconnectAndSetNull}>
+                    Disconnect Wallet
+                  </Button>
+                </ThemeProvider>
+              ) : (
+                <ThemeProvider theme={theme}>
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      connect({ connector: connectors[0] });
+                      console.log(account.addresses);
+                      console.log(connectors[0].name);
+                      console.log(isConnected);
+                    }}
+                  >
+                    Connect Wallet
+                  </Button>
+                </ThemeProvider>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
       <div className="flex h-full  bg-[url('/public/herobg.png')] bg-no-repeat">
         <div className="flex w-full">
           <div className="flex-start  w-1/3 mt-3 ml-3">
@@ -34,7 +116,6 @@ const HomePage = () => {
         </div>
       </div>
     </>
-
   );
 };
 

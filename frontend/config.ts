@@ -4,7 +4,7 @@ import { injected, safe } from 'wagmi/connectors'
 
 export const config = createConfig({
   chains: [polygonMumbai],
-  connectors: [injected()],
+  connectors: [],
   transports: {
     [polygonMumbai.id]: http('https://rpc-mumbai.polygon.technology/'),
   }

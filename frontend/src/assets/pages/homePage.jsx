@@ -17,7 +17,7 @@ const HomePage = () => {
   const { connectors, connect } = useConnect();
   const { disconnect } = useDisconnect();
 
-  const address = "0x123.....";
+  // const address = "0x123.....";
   // const name = "Divykumar";
   // const balance = "100.32";
   // const dollars = "121.00";
@@ -39,7 +39,7 @@ const HomePage = () => {
 
   async function getNameAndBalance() {
     const res = await axios.get(`http://localhost:3001/getNameAndBalance`, {
-      params: { userAddress: address },
+      params: { userAddress: account.address },
     });
 
     const response = res.data;
@@ -97,24 +97,33 @@ const HomePage = () => {
           </div>
         </div>
       </nav>
-      <div className="flex h-full  bg-[url('/public/herobg.png')] bg-no-repeat">
-        <div className="flex w-full">
-          <div className="flex-start  w-1/3 mt-3 ml-3">
-            <div className="flex-col items-center">
-              <AccountDetails address={address} name={name} balance={balance} />
+
+      {isConnected ? (
+        <div className="flex h-full  bg-[url('/public/herobg.png')] bg-no-repeat">
+          <div className="flex w-full">
+            <div className="flex-start  w-1/3 mt-3 ml-3">
+              <div className="flex-col items-center">
+                <AccountDetails
+                  address={account.address}
+                  name={name}
+                  balance={balance}
+                />
+              </div>
+              <div className="flex">
+                <PayButtons />
+              </div>
+              <div>
+                <CurrentBalance dollars={dollars} />
+              </div>
             </div>
-            <div className="flex">
-              <PayButtons />
+            <div className="w-2/3 mt-6 ml-3 mr-3 rounded">
+              <TableDetails />
             </div>
-            <div>
-              <CurrentBalance dollars={dollars} />
-            </div>
-          </div>
-          <div className="w-2/3 mt-6 ml-3 mr-3 rounded">
-            <TableDetails />
           </div>
         </div>
-      </div>
+      ) : (
+        <div>Please Login or Connect to Wallet</div>
+      )}
     </>
   );
 };

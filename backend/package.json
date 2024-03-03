@@ -13,7 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "moralis": "^2.16.1"
+    "moralis": "^2.16.1",
+    "nodemon": "^3.1.0"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-ethers": "^3.0.5",
@@ -25,5 +26,4 @@
     "ethers": "^6.11.1",
     "hardhat": "^2.20.1"
   }
-  
 }

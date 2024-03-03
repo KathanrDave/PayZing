@@ -17,7 +17,7 @@ function AccountDetails({ address, name, balance }) {
     ? `${address.slice(0, 4)}...${address.slice(38)}`
     : "N/A";
   const handleSetUsername = () => {
-    // Handle the "Set Username" action
+    
   };
   const handleSwitchAccounts = () => {
     // Handle the "Switch Accounts" action

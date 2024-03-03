@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QRCodeGenerator from "../component/qrCodeGen";
+import QRCodeGenerator from "../component/PaymentCard";
 import { Button } from "@mui/material";
 
 function MerchantPage() {
@@ -9,7 +9,7 @@ function MerchantPage() {
   const amount = "65165"; // Replace with actual amount
 
   const handleFixed = () => {
-    const data = "https://www.example.com/buy?merchant=${merchantAddress}&amount=${amount}&state=${true}";
+    const data = `https://www.example.com/buy?merchant=${merchantAddress}&amount=${amount}&state=${true}`;
     console.log("Data :",data);
     const encodedValue = new URL(data);
     // Update QR code value
@@ -17,7 +17,8 @@ function MerchantPage() {
   };
 
   const handleDefault = () => {
-    const data = merchant=${merchantAddress}&state=${false};
+    const data = `https://www.example.com/buy?merchant=${merchantAddress}&state=${false}`;
+    
     const encodedValue = new URL(data);
     // Update QR code value
     setEncodedValue(encodedValue);

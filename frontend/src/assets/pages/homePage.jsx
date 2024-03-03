@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router-dom';
 // import Navbar from "../component/Navbar";
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from "axios";
-import { Button } from "@mui/material";
+import { Button } from "@mui/material"
+import landingPage from "./landingPage";;
 
 const HomePage = () => {
   const account = useAccount();
@@ -67,7 +68,7 @@ const HomePage = () => {
       <nav className="relative bg-white shadow dark:bg-gray-800 w-full">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold text-purple-700 font-roboto">
+            <h1 className="text-3xl font-bold text-white font-caveat">
               PAYZING
             </h1>
           </div>
@@ -132,7 +133,8 @@ const HomePage = () => {
           </div>
         </div>
       ) : (
-        <div>Please Login or Connect to Wallet</div>
+        <div className = "h-full  bg-[url('/public/front.png')] bg-no-repeat">
+        </div>
       )}
     </>
   );

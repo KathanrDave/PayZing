@@ -6,6 +6,7 @@ import TableDetails from "../component/tableDetails";
 import PayButtons from "../component/payButtons";
 import { ThemeProvider } from "@mui/material";
 import theme from "../acessories/theme";
+import { useNavigate } from 'react-router-dom';
 // import Navbar from "../component/Navbar";
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from "axios";
@@ -16,7 +17,7 @@ const HomePage = () => {
   const isConnected = useAccount().isConnected;
   const { connectors, connect } = useConnect();
   const { disconnect } = useDisconnect();
-
+  const navigate = useNavigate();
   // const address = "0x123.....";
   // const name = "Divykumar";
   // const balance = "100.32";
@@ -58,6 +59,9 @@ const HomePage = () => {
     getNameAndBalance();
   }, [isConnected]);
 
+  const getbarcode = () => {
+    navigate('/barcode');
+  };
   return (
     <>
       <nav className="relative bg-white shadow dark:bg-gray-800 w-full">
@@ -73,11 +77,17 @@ const HomePage = () => {
           >
             <div className="flex flex-col md:flex-row md:mx-6">
               {isConnected ? (
-                <ThemeProvider theme={theme}>
-                  <Button type="button" onClick={disconnectAndSetNull}>
-                    Disconnect Wallet
-                  </Button>
-                </ThemeProvider>
+                <>
+                  <div className="flex flex-col md:flex-row md:mx-6">
+                    <button type="button" className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900" onClick={getbarcode}>
+                      Merchant</button>
+                  </div>
+                  <ThemeProvider theme={theme}>
+                    <Button type="button" onClick={disconnectAndSetNull}>
+                      Disconnect Wallet
+                    </Button>
+                  </ThemeProvider>
+                </>
               ) : (
                 <ThemeProvider theme={theme}>
                   <Button

@@ -67,7 +67,7 @@ const HomePage = () => {
       <nav className="relative bg-white shadow dark:bg-gray-800 w-full">
         <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold text-gray-900 font-roboto">
+            <h1 className="text-3xl font-bold text-purple-700 font-roboto">
               PAYZING
             </h1>
           </div>
